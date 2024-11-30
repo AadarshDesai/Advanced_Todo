@@ -1,19 +1,19 @@
-import { Sidebar } from './components/Sidebar';
 import { MainComponent } from './components/MainComponent';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Layout } from './shared/Layout';
 // import { BrowserRouter as Router } from 'react-router-dom';
 
 
 function App() {
 
   return (
-    <div className='flex w-screen h-screen gap-4'>
-      <div className='w-60 h-full hidden sm:block'>
-        <Sidebar/>
-      </div>
-      <div className='bg-purple-400 h-full flex-1 rounded-lg'>
-        <MainComponent/>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout/>}>
+          <Route index element={<MainComponent/>}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

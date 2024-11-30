@@ -1,6 +1,6 @@
 import {Menu} from "lucide-react";
 import { useState } from "react";
-import { Sidebar } from "./Sidebar";
+import { Sidebar } from "../shared/Sidebar";
 
 export function MainComponent(){
     const [hamBurger, setHamBurger] = useState(false);
