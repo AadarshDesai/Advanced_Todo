@@ -1,4 +1,4 @@
-import { Sun, Star, SquareMenu, House } from "lucide-react";
+import { Sun, Star, SquareMenu, House, HandHelping} from "lucide-react";
 
 export interface SidebarLinkItem {
     key: string;
@@ -23,13 +23,22 @@ export const DASHBOARD_SIDEBAR_LINKS:SidebarLinkItem[] = [
     {
         key: "planned",
         label: "Planned",
-        path: "/orders",
+        path: "/planned",
         icon: <SquareMenu className="text-gray-500 h-5 w-5" />
     },
     {
         key: "tasks",
         label: "Tasks",
-        path: "/customers",
+        path: "/tasks",
         icon: <House className="text-blue-400 h-5 w-5"/>
+    }
+]
+
+export const NewList: SidebarLinkItem[] = [
+    {
+        key: "getstarted",
+        label: "Getting Started",
+        path: "/getstarted",
+        icon: <HandHelping className="text-yellow-500 "/>
     }
 ]

@@ -2,11 +2,11 @@ import { Outlet } from "react-router-dom";
 import { Sidebar } from "./Sidebar";
 
 export function Layout(){
-    return <div className='flex w-screen h-screen gap-4'>
-        <div className='w-60 h-full hidden sm:block'>
+    return <div className='flex w-screen h-screen'>
+        <div className='w-60 hidden sm:block sm:overflow-y-auto sm:overflow-x-hidden'>
             <Sidebar/>
         </div>
-        <div className='bg-purple-400 h-full flex-1 rounded-lg'>
+        <div className='h-full flex-1'>
             {<Outlet/>}
         </div>
     </div>
