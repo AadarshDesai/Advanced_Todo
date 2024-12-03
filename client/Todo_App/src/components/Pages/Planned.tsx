@@ -29,7 +29,7 @@ export function Planned(){
             )
         );
     }
-    return <div className="relative bg-orange-300 h-full flex-1 rounded-sm overflow-scroll">
+    return <div className="relative bg-orange-300 h-full flex-1 rounded-sm">
         <Topbar/>
         <Todos todos={todos}
             CircleClicked = {CircleClicked}

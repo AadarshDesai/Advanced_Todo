@@ -30,7 +30,7 @@ export function MainComponent(){
         );
     }
 
-    return <div className="relative bg-purple-400 h-full flex-1 rounded-sm overflow-scroll">
+    return <div className="relative bg-purple-400 h-full flex-1 rounded-sm">
         <Topbar/>
         <Todos todos={todos}
             CircleClicked = {CircleClicked}
