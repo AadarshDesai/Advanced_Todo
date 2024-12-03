@@ -29,7 +29,7 @@ export function Tasks(){
             )
         );
     }
-    return <div className="relative bg-cyan-400 h-full flex-1 rounded-sm">
+    return <div className="relative bg-cyan-400 h-full flex-1 rounded-sm overflow-scroll">
         <Topbar/>
         <Todos todos={todos}
             CircleClicked = {CircleClicked}

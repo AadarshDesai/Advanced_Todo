@@ -32,7 +32,7 @@ export function Important(){
     }
 
 
-    return <div className="relative bg-red-400 h-[100vh] flex-1 rounded-sm">
+    return <div className="relative bg-red-400 h-[100vh] flex-1 rounded-sm overflow-scroll">
         <Topbar/>
         <Todos todos={todos}
             CircleClicked = {CircleClicked}

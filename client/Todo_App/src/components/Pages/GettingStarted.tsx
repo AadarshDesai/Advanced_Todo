@@ -37,7 +37,7 @@ export function GettingStarted(){
         );
     }
 
-    return <div className="relative bg-violet-400 h-full flex-1 rounded-sm">
+    return <div className="relative bg-violet-400 h-full flex-1 rounded-sm overflow-scroll">
         <Topbar/>
         <Todos todos={todos}
             CircleClicked = {CircleClicked}
