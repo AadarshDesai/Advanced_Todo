@@ -34,7 +34,7 @@ export const DASHBOARD_SIDEBAR_LINKS:SidebarLinkItem[] = [
     }
 ]
 
-export const NewList: SidebarLinkItem[] = [
+export const NewList_Navigation: SidebarLinkItem[] = [
     {
         key: "getstarted",
         label: "Getting Started",

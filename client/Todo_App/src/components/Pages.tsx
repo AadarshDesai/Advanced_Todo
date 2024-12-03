@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NewList } from "./lib/constants/navigation";
+import { NewList_Navigation } from "./lib/constants/navigation";
 import { SidebarLinkItem } from "../components/lib/constants/navigation";
 import { Link, useLocation } from "react-router-dom";
 import classNames from "classnames";
@@ -10,7 +10,7 @@ interface SidebarLinkProps {
 
 export const Pages: React.FC = () => {
     return <div className="w-full py-2 max-h-screen">
-        {NewList.map((item)=>(
+        {NewList_Navigation.map((item)=>(
             <SidebarLink key={item.key} item={item}/>
         ))}
     </div>
