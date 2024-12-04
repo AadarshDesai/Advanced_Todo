@@ -4,7 +4,6 @@ import { Topbar } from "../Topbar";
 import { Todos } from "../Todos";
 
 export function Important(){
-
     const [todos, setTodos] = useState([
         { text: "", completed: false, starred: false },
     ]);
