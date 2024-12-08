@@ -20,30 +20,30 @@ export const Todos: React.FC<TodoProps> = ({todos, CircleClicked, StarClicked})=
             .filter((todo)=> todo.text.trim() != "")
             .map(({text, completed, starred, originalIndex})=>(
                 <div className="flex justify-center">
-                    <li key={originalIndex} className={`mb-0.5 rounded-md flex bg-white text-neutral-900 p-3 justify-between w-[85%] mx-4 ${completed ? "line-through text-gray-500": ""}`}>
+                    <li key={originalIndex} className={`mb-0.5 rounded-md flex bg-white text-neutral-900 p-3 justify-between w-[85%] mx-4 text-clip overflow-hidden ${completed ? "line-through text-gray-500": ""}`}>
                         <span className="flex">
                             {completed ? (
                                 <CheckCircle
                                 onClick={()=> CircleClicked(originalIndex)}
-                                className="text-green-500 pr-2 cursor-pointer"
+                                className="text-green-500 pr-2 cursor-pointer w-6 h-6 flex-shrink-0"
                                 />
                             ) : (
                                 <Circle 
                                 onClick={()=>CircleClicked(originalIndex)}
-                                className="text-gray-500 pr-2 cursor-pointer" 
+                                className="text-gray-500 pr-2 cursor-pointer w-6 h-6 flex-shrink-0" 
                                 />
                             )}
-                            <span>{text}</span>
+                            <span className="break-words overflow-hidden max-w-[calc(100%-20px)] whitespace-normal">{text}</span>
                         </span>
                         {starred ? (
                             <Star 
                             onClick={()=>StarClicked(originalIndex)}
-                            className="pr-2 text-orange-400 cursor-pointer fill-orange-400"
+                            className="pr-2 text-orange-400 cursor-pointer fill-orange-400 w-6 h-6 flex-shrink-0"
                             />
                         ):(
                             <Star 
                             onClick={()=>StarClicked(originalIndex)}
-                            className="pr-2 text-gray-500 cursor-pointer"
+                            className="pr-2 text-gray-500 cursor-pointer w-6 h-6 flex-shrink-0"
                             />
                         )}
                     </li>
