@@ -21,7 +21,7 @@ export const Addtodo: React.FC<AddtodoProps> = ({onAdd})=>{
     }
 
     return <div className="flex justify-center">
-        <div className="absolute bottom-0 mb-7 rounded-md flex bg-white text-neutral-900 p-3 w-[85%]">
+        <div className="sm:absolute mt-8 bottom-0 mb-7 rounded-md flex bg-white text-neutral-900 p-3 w-[85%]">
             <Plus onClick={handleAdd} className="pr-1 text-neutral-900 cursor-pointer"/>
             <input type="text" placeholder="Add Task" onKeyDown={handleEnter} value={inputValue} onChange={(e)=>setInputValue(e.target.value)} className="focus:outline-none pl-1"/>
         </div>

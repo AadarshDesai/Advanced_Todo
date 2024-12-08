@@ -14,7 +14,7 @@ interface TodoProps {
 export const Todos: React.FC<TodoProps> = ({todos, CircleClicked, StarClicked})=>{
 
     return <div>
-    <ul className="flex flex-col h-[calc(100vh-250px)] overflow-y-scroll">
+    <ul className="flex flex-col h-[calc(100vh-270px)] sm:h-[calc(100vh-250px)] overflow-y-scroll">
             {todos
             .map((todo, originalIndex)=>({...todo, originalIndex}))
             .filter((todo)=> todo.text.trim() != "")

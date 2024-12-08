@@ -6,7 +6,7 @@ const month = ["January","February", "March", "April", "May", "June", "July", "A
 
 export const Topbar: React.FC = () =>{
     const date = new Date();
-    return <div className="flex justify-between p-10">
+    return <div className="flex justify-between sm:p-10 px-10 pt-16 mb-10 sm:mb-0">
         <div>
             <h1 className="font-bold text-white text-3xl">My Day</h1>
             <span className="text-white">{day[date.getDay()]+ ", " +date.getDate() + " " + month[date.getMonth()]}</span>
