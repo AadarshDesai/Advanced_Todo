@@ -1,6 +1,8 @@
 "use server"
+import { generateToken } from "@/lib/auth";
 import prisma from "@/lib/db";
 import bcrypt from "bcrypt";
+import { cookies } from "next/headers";
 
 interface loginProps {
     email: string,
@@ -15,6 +17,15 @@ export async function Login({email, password}: loginProps){
         if(!user || !(await bcrypt.compare(password, user?.password))){
             throw new Error("Invalid credentials");
         }else{
+            const token = generateToken({id: user.id, email: user.email});
+
+            (await cookies()).set("token", token, {
+                httpOnly: true,
+                path: "/",
+                maxAge: 60 * 60 * 24 * 7,
+                sameSite: "lax"
+            })
+
             return {
                 success: true,
                 user: {
