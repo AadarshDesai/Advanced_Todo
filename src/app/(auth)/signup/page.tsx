@@ -34,7 +34,7 @@ export default function SignupPage() {
                 </form>
                 <div>
                     <p className="text-slate-400 mt-3 text-center">Alreadt have an account? <span onClick={()=> {
-                        router.push("/auth/login")
+                        router.push("/login")
                     }} className="text-slate-800 cursor-pointer font-semibold">Login</span></p>
                 </div>
               </div>

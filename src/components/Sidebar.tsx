@@ -1,8 +1,24 @@
 import Image from "next/image";
-import Options from "./Options";
 import SearchBox from "./SearchBox";
+import { useState } from "react";
+import Link from "next/link";
+
 
 export default function Sidebar() {
+
+    const [selected, setSelected] = useState("Myday");
+
+    const options = [
+        { image: "/Icons/sunny.png", href: "/myday", label: "Myday" },
+        { image: "/Icons/star.png", href: "/important", label: "Important" },
+        { image: "/Icons/list.png", href: "/planned", label: "Planned" },
+        { image: "/Icons/home.png", href: "/tasks", label: "Tasks" }
+    ];
+
+    const handleClick = (option: string) => {
+        setSelected(option)
+    }
+
     return (
         <div className="relative h-screen">
             <div className="flex gap-2 p-2">
@@ -13,7 +29,21 @@ export default function Sidebar() {
                 </div>
             </div>
             <SearchBox/>
-            <Options />
+            <div className="flex flex-col gap-2">
+                {options.map((item, index) => {
+                    return <Link onClick={() => handleClick(item.label)} href={item.href} key={index} className={item.label === selected? "flex gap-4 px-3 py-2 m-1 bg-gray-100 cursor-pointer" :"flex gap-4 px-3 py-2 m-1 hover:bg-gray-100 rounded cursor-pointer"}>
+                            <Image 
+                                src={item.image}
+                                alt={item.label}
+                                width={20}
+                                height={20}
+                                priority
+                                className="object-contain"
+                            />
+                            <h3>{item.label}</h3>
+                    </Link>
+                })}
+            </div>
             <hr className="mt-2 mx-1 border-t border-gray-300"/>
             <div className="flex gap-4 px-3 py-2 m-1 hover:bg-gray-100 rounded">
                 <Image
