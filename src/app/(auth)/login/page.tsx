@@ -3,6 +3,7 @@ import { Button } from "@/components/Button";
 import { LabelInput } from "@/components/LabelInput";
 import { useRouter } from "next/navigation";
 import { Login } from "./actions";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function LoginPage() {
 
@@ -13,11 +14,12 @@ export default function LoginPage() {
       const password = formData.get("Password") as string;
 
       if(!email || !password){
-        throw new Error("Email or Password is missing.");
+        toast.error("Email or Password is missing.");
+      }else{
+        await Login({email, password});
+        router.push("/");
       }
-
-      await Login({email, password});
-      router.push("/");
+      
     }
 
     return <div className="bg-slate-200 h-screen flex justify-center items-center">
@@ -34,6 +36,7 @@ export default function LoginPage() {
             }} className="text-slate-800 cursor-pointer font-semibold">Sign Up</span></p>
         </div>
       </div>
+      <ToastContainer />
     </div>
 }
 

@@ -1,12 +1,20 @@
+"use client"
 import Image from "next/image";
 import SearchBox from "./SearchBox";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
+
+type User = {
+    name: string;
+    email: string
+};
 
 export default function Sidebar() {
 
     const [selected, setSelected] = useState("Myday");
+    const [userData, setUserData] = useState<User>();
+
 
     const options = [
         { image: "/Icons/sunny.png", href: "/myday", label: "Myday" },
@@ -19,13 +27,25 @@ export default function Sidebar() {
         setSelected(option)
     }
 
+    useEffect(()=>{
+        fetch("api/user", {credentials: "include"})
+         .then(res => {
+            if(!res.ok) throw new Error("Failed to fetch user");
+            return res.json();
+         })
+         .then(data => setUserData(data))
+         .catch(err => console.error(err));
+    },[])
+
+    const initials = userData?.name.split(" ")[0][0];
+
     return (
         <div className="relative h-screen">
             <div className="flex gap-2 p-2">
-                <div className="h-10 w-10 rounded-full bg-blue-300 pt-2 pl-2">AD</div>
+                <div className="h-10 w-10 rounded-full bg-blue-300 pt-1.5 pl-3.5 text-xl font-bold">{initials}</div>
                 <div>
-                    <p className="font-semibold">Aadarsh Desai</p>
-                    <p className="text-gray-500 text-xs">adidesai91@gmail.com</p>
+                    <p className="font-semibold">{userData?.name}</p>
+                    <p className="text-gray-500 text-xs">{userData?.email}</p>
                 </div>
             </div>
             <SearchBox/>
